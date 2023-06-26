@@ -6,10 +6,6 @@ import "../../css/styles/slick-theme.css";
 import Skeleton from "../UI/Skeleton";
 
 const HotCollections = ({ hotCollections, hotCollectionsLoading }) => {
-  useEffect(() => {
-    console.log(hotCollectionsLoading);
-    console.log(hotCollections);
-  }, [hotCollectionsLoading]);
 
   const settings = {
     infinite: true,
