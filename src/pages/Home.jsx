@@ -10,6 +10,8 @@ import axios from "axios";
 const Home = () => {
   const [hotCollections, setHotCollections] = useState([])
   const [hotCollectionsLoading, setHotCollectionsLoading] = useState(null)
+  const [newItems, setNewItems] = useState([])
+
   const fetchHotCollections = async () => {
     setHotCollectionsLoading(true)
     const { data } = await axios.get(
@@ -19,10 +21,19 @@ const Home = () => {
     setHotCollectionsLoading(false)
   };
 
+  const fetchNewItems = async () => {
+    const { data } = await axios.get(
+      "https://us-central1-nft-cloud-functions.cloudfunctions.net/newItems"
+    );
+    setNewItems(data)
+  };
+
   useEffect(() => {
     window.scrollTo(0, 0);
     fetchHotCollections();
+    fetchNewItems();
   }, []);
+
 
   return (
     <div id="wrapper">
@@ -31,7 +42,7 @@ const Home = () => {
         <Landing />
         <LandingIntro />
         <HotCollections hotCollections={hotCollections} hotCollectionsLoading={hotCollectionsLoading}/>
-        <NewItems />
+        <NewItems newItems={newItems}/>
         <TopSellers />
         <BrowseByCategory />
       </div>
