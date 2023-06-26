@@ -1,9 +1,40 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import AuthorImage from "../../images/author_thumbnail.jpg";
-import nftImage from "../../images/nftImage.jpg";
+import Slider from "react-slick";
+import "../../css/styles/slick.css";
+import "../../css/styles/slick-theme.css";
 
 const NewItems = ({newItems}) => {
+  const settings = {
+    infinite: true,
+    speed: 500,
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    responsive: [
+      {
+        breakpoint: 1200,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 980,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
+
   return (
     <section id="section-items" className="no-bottom">
       <div className="container">
@@ -14,8 +45,9 @@ const NewItems = ({newItems}) => {
               <div className="small-border bg-color-2"></div>
             </div>
           </div>
+          <Slider {...settings} >
           {newItems.map((newItem) => (
-            <div className="col-lg-3 col-md-6 col-sm-6 col-xs-12" key={newItem.id}>
+            <div key={newItem.id}>
               <div className="nft__item">
                 <div className="author_list_pp">
                   <Link
@@ -70,6 +102,7 @@ const NewItems = ({newItems}) => {
               </div>
             </div>
           ))}
+          </Slider>
         </div>
       </div>
     </section>
