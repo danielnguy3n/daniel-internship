@@ -4,8 +4,14 @@ import Slider from "react-slick";
 import "../../css/styles/slick.css";
 import "../../css/styles/slick-theme.css";
 import Skeleton from "../UI/Skeleton";
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 const HotCollections = ({ hotCollections, hotCollectionsLoading }) => {
+
+  useEffect(() => {
+    Aos.init();
+  }, []);
 
   const settings = {
     infinite: true,
@@ -40,10 +46,10 @@ const HotCollections = ({ hotCollections, hotCollectionsLoading }) => {
   return (
     <section id="section-collections" className="no-bottom">
       <div className="container">
-        <div className="row">
+        <div className="row" data-aos="fade-in" data-aos-duration="1000">
           <div className="col-lg-12">
             <div className="text-center">
-              <h2>Hot Collections</h2>
+              <h2 >Hot Collections</h2>
               <div className="small-border bg-color-2"></div>
             </div>
           </div>
