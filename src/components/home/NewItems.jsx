@@ -4,8 +4,15 @@ import "../../css/styles/slick.css";
 import "../../css/styles/slick-theme.css";
 import Item from "../UI/Item";
 import ItemSkeleton from "../UI/ItemSkeleton";
+import "aos/dist/aos.css";
+import Aos from "aos";
 
 const NewItems = ({ newItems, newItemsLoading }) => {
+
+  useEffect(() => {
+    Aos.init();
+  }, []);
+
   const settings = {
     infinite: true,
     speed: 500,
@@ -39,7 +46,7 @@ const NewItems = ({ newItems, newItemsLoading }) => {
   return (
     <section id="section-items" className="no-bottom">
       <div className="container">
-        <div className="row">
+        <div className="row" data-aos="fade-in" data-aos-duration="1000">
           <div className="col-lg-12">
             <div className="text-center">
               <h2>New Items</h2>

@@ -3338,3 +3338,14 @@
   -webkit-animation-name: slideOutUp;
   animation-name: slideOutUp;
 }
+
+[data-aos="fade-in-up"] {
+  transform: translate3d(0,30%,0);
+  opacity: 0;
+  transition-property: transform, opacity;
+
+  &.aos-animate {
+    transform: none;
+    opacity: 1;
+  }
+}
