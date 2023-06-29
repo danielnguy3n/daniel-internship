@@ -35,9 +35,9 @@ const Author = () => {
 
   function followButton() {
     if (followed) {
-      setAuthor({...author, followers: author.followers + 1})
-    } else {
       setAuthor({...author, followers: author.followers - 1})
+    } else {
+      setAuthor({...author, followers: author.followers + 1})
     }
     setFollowed(!followed)
   }
